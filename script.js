@@ -10,7 +10,7 @@ var generateBtn = document.querySelector("#generate");
  
 function generatePassword(){
   //TODO: your code here
-  var upperCase = confirm("Do you want upper case characters?")
+  var upperCase = window.confirm("Do you want upper case characters?")
   if (upperCase === true) {
     possibleChar = possibleChar.concat(alphaCharUpper);
   }
@@ -41,10 +41,13 @@ var passLength =+ prompt("How long do you want your password to be?")
 console.log(passLength)
   if (passLength < 8) {
     alert("Sorry the password must be longer than 8 characters.")
+    return false;
   } else if (passLength > 128) {
       alert("Sorry, the password must be less than 129 characters.")
+      return false;
   } else if (Number.isInteger(passLength) === false) {
       alert("Sorry, you can only input numbers for password length.");
+      return false;
        
   }
   console.log(passLength)        
@@ -69,6 +72,7 @@ console.log(passLength)
      
     
    
+0
 // Write password to the #password input
 /* DO NOT CHANGE THIS CODE!  This function is going to call your generatePassword() function and whatever is returned from that function will be put onto the page */
 function writePassword() {
